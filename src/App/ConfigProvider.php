@@ -4,6 +4,8 @@ namespace App;
 
 use App\Action\HomePageAction;
 use App\Action\HomePageFactory;
+use App\Action\ProformaAction;
+use App\Action\ProformaFactory;
 
 class ConfigProvider
 {
@@ -24,7 +26,8 @@ class ConfigProvider
 
             ],
             'factories'  => [
-                HomePageAction::class => HomePageFactory::class
+                HomePageAction::class => HomePageFactory::class,
+                ProformaAction::class => ProformaFactory::class
             ]
         ];
     }
@@ -49,6 +52,12 @@ class ConfigProvider
                 'path' => '/',
                 'middleware' => HomePageAction::class,
                 'allowed_methods' => ['GET']
+            ],
+            [
+                'name' => 'ps',
+                'path' => '/ps',
+                'middleware' => ProformaAction::class,
+                'allowed_methods' => ['POST']
             ]
         ];
 
