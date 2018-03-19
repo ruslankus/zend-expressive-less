@@ -1,8 +1,7 @@
 FROM ruslankus/ub16_php71:v1
 
 MAINTAINER ruslan.kiricenko@locatory.com
-
-
+RUN usermod -u 1000 www-data
 RUN a2enmod rewrite
 
 RUN curl -sS https://getcomposer.org/installer \
