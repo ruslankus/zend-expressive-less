@@ -1,8 +1,9 @@
-FROM ruslankus/ub16_php71:v1
+FROM ruslankus/ub16_php71:v2
 
 MAINTAINER ruslan.kiricenko@locatory.com
 RUN usermod -u 1000 www-data
 RUN a2enmod rewrite
+RUN a2enmod ssl
 
 RUN curl -sS https://getcomposer.org/installer \
   | php -- --install-dir=/usr/local/bin --filename=composer

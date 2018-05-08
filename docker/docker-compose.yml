@@ -3,9 +3,24 @@ services:
   zend-exp:
       build: .
       environment:
-          XDEBUG_CONFIG: remote_host=192.168.0.102
+          XDEBUG_CONFIG: remote_host=192.168.103.52
       ports:
           - "80:80"
       volumes:
           - "../:/var/www/site"
+          - "./ssl:/etc/apache2/ssl"
+      depends_on:
+          - "pdf-service"
+      restart: always
+
+  pdf-service:
+      image: traumfewo/docker-wkhtmltopdf-aas
+      container_name: pdf-service
+      ports:
+            - "8888:5555"
+      environment:
+          - "USER=ruslan"
+          - "PASS=123456"
+      external_links:
+          - "zend-exp:pdf-service"
       restart: always

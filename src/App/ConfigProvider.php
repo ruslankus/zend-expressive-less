@@ -39,7 +39,8 @@ class ConfigProvider
                 'app'  => ['templates/app'],
                 'error'  => ['templates/error'],
                 'layout' => ['templates/layout'],
-                'app-partial' => ['templates/app/app-partial']
+                'app-partial' => ['templates/app/app-partial'],
+                'proforma' => ['templates/app/proforma']
             ],
         ];
     }
